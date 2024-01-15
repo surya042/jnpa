@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>JNPA</title>
+</head>
+<body>
+    <section class="header">
+        <nav>
+<a href="index.html"><img src="images/jnpaicon.png"></a>
+<div class="nav-links" id="navLinks">
+    <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+    
+    <ul>
+        <li><a href="#">A</a></li>
+        <li><a href="#">B</a></li>
+        <li><a href="#">C</a></li> 
+    </ul>
+</div>
+<i class="fa-solid fa-bars" onclick="showMenu()"></i>
+        </nav>
+    <!-- <div class="text-box">
+        <h1>Fill Form To Register</h1>
+        <a href="" class="hero-btn">Register</a>
+    </div>     -->
+    <div class="registeration">
+        <h1>Registration Form</h1>
+        <form id="registrationForm">
+            <div>
+                <label for="programTitle">Program Title:</label>
+                <input type="text" id="programTitle" required>
+                <span>On</span>
+                <input type="date" id="programDate" required>
+                <span>(Venue)</span>
+                <input type="text" id="programVenue" required>
+            </div>
+            <div>
+                <label for="title">Title:</label>
+                <select id="title" required>
+                    <option value="Mr.">Mr.</option>
+                    <option value="Mrs.">Mrs.</option>
+                    <option value="Ms.">Ms.</option>
+                </select>
+            </div>
+            <div>
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" required>
+            </div>
+            <div>
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" required>
+            </div>
+            <div>
+                <label for="designation">Designation:</label>
+                <input type="text" id="designation" required>
+            </div>
+            <div>
+                <label for="companyName">Company Name:</label>
+                <input type="text" id="companyName" required>
+            </div>
+            <div>
+                <label for="orgCategory">Organization Category:</label>
+                <select id="orgCategory" required>
+                    <option value="Customs">Customs</option>
+                    <option value="DG Shipping">DG Shipping</option>
+                    <!-- Add more options here -->
+                    <option value="others">Others (please specify)</option>
+                </select>
+                <input type="text" id="otherOrgCategory">
+            </div>
+            <div>
+                <label for="memberOfAssociation">Member of Association (If any):</label>
+                <select id="memberOfAssociation" required>
+                    <option value="CSLA">CSLA</option>
+                    <option value="MANSA">MANSA</option>
+                    <!-- Add more options here -->
+                    <option value="others">Others (please specify)</option>
+                </select>
+                <input type="text" id="otherAssociation">
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <button id="sendOTP">Send OTP</button>
+            </div>
+            <div>
+                <label for="mobileNo">Mobile No.:</label>
+                <input type="tel" id="mobileNo" required>
+            </div>
+            <div>
+                <label for="attendingDay">Attending Program on:</label>
+                <select id="attendingDay" required>
+                    <option value="Day 1">Day 1</option>
+                    <option value="Day 2">Day 2</option>
+                    <option value="All">All</option>
+                </select>
+            </div>
+            <div>
+                <label for="otp">Confirm OTP:</label>
+                <input type="text" id="otp" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    
+        <div id="confirmationMessage"></div>
+    </div>
+    </section>
+   
+    <!-- <script>
+
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+    </script>
+    <script>
+        // Function to send OTP
+        function sendOTP() {
+            const email = document.getElementById('email').value;
+    
+            fetch('/sendOTP', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.message); // Log the response from the server
+                // You can display a confirmation to the user here
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    
+        // Function to handle form submission
+        function submitForm() {
+            event.preventDefault();
+            const otpInput = document.getElementById('otp').value;
+    
+            // Extract and include all form fields in this object
+            const formData = {
+                programTitle: document.getElementById('programTitle').value,
+                programDate: document.getElementById('programDate').value,
+                programVenue: document.getElementById('programVenue').value,
+                // Add other form fields here
+            };
+    
+            fetch('/submitForm', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.message); // Log the response from the server
+                // Display a confirmation message to the user
+                const confirmationMessage = document.getElementById('confirmationMessage');
+                confirmationMessage.textContent = 'Form submitted successfully.';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    
+        // Event listeners for button clicks
+        document.getElementById('sendOTP').addEventListener('click', sendOTP);
+        document.getElementById('registrationForm').addEventListener('submit', submitForm);
+    </script> -->
+    <script>
+        // Generate and send OTP (for demonstration purposes only)
+        document.getElementById('sendOTP').addEventListener('click', function () {
+            const email = document.getElementById('email').value;
+            const otp = Math.floor(100000 + Math.random() * 900000); // Generate a 6-digit OTP
+            // In a real application, you'd send this OTP to the user's email using a server-side script
+            console.log(`Sending OTP ${otp} to ${email}`);
+        });
+
+        // Handle form submission
+        document.getElementById('registrationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const otpInput = document.getElementById('otp').value;
+            // In a real application, you'd validate the OTP here by sending it to the server for verification
+            // For this demonstration, we'll assume OTP validation is successful
+            const confirmationMessage = document.getElementById('confirmationMessage');
+            confirmationMessage.textContent 
+            = 'Nominations successfully submitted. Confirmation will be sent after approval.';
+        });
+    </script>
+
+
+    <script type="text/javascript" src="app.js"></script>
+    
+</body>
+</html>

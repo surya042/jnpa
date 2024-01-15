@@ -1,0 +1,416 @@
+*{
+     margin: 0; 
+     padding: 0;
+     box-sizing: border-box; 
+     font-size: 20px;
+}
+html{
+    scroll-behavior: smooth;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/back1.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+nav img{
+    width: 150px;
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 13px;
+}
+.nav-links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+.text-box{
+    width: 90%;
+    color: azure;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.text-box h1{
+    font-size: 62 px;
+
+}
+.hero-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    margin: 10px 0 40px;
+}
+.hero-btn:hover{
+    border: 1px solid #f44336;
+    background: #f44336;
+    transition: 1s;
+}
+nav .fa{
+    display: none;
+}
+
+@media(max-width:700px){
+    .text-box h1{
+        display: block;
+    }
+    .nav-links ul li{
+        display: block;
+    }
+    .nav-links{
+        position:absolute;
+        background: #f44336;
+        height: 100vh;
+        width:200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 1s;
+    }
+    nav .fa{
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .nav-links ul{
+        padding: 30px;
+
+    }
+}
+
+/* Style for the entire registration container */
+.registeration {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Style for the registration form heading */
+  .registeration h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Style for form labels */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  /* Style for form input fields */
+  input[type="text"],
+  input[type="date"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="text"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  
+  /* Style for the "Send OTP" button */
+  #sendOTP {
+    display: block;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  #sendOTP:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style for the form submission button */
+  [type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  [type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Style for the confirmation message */
+  #confirmationMessage {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 3px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+
+
+/* .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background-color: #ececec;
+}
+.logo{
+    flex-basis: 80%;
+} 
+.logo img {
+    width: 150px;
+} 
+.menubar{
+    width: 45%;
+    margin-left: 8.5em;
+}
+.list{
+    display: flex;
+    justify-content: space-between;
+}
+.list-items a{
+    color: #000000;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    transition: 0.4s;
+}
+.list-items a:hover{
+    color: black;     
+}
+.cart{
+    padding-right: 3em;
+    padding-top: 0em;
+    position: relative;
+}
+.cart .number-of-nominees{
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: absolute;
+    right: 18px;
+    top: -7px;
+    background: #f09d51; 
+    height: 20px;
+    width: 20px;
+    border-radius: 7px;
+} 
+.number-of-nominees .noi{
+    font-size: 0.7em;
+}
+.fa-light fa-user{
+    font-size: 1.5em;
+    cursor: pointer;
+}
+.burger{
+    height: 28px;
+    width: 32px;
+    display: none;
+}
+.layer1,.layer2,.layer3{
+    background: #000000;
+    height: 4px;
+    margin-top: 4px;
+    width: 100%;
+    border-radius: 10px;
+}
+.section{
+    height: calc(100vh - 10vh);
+    width: 100%;
+    background: url("images/1675147147_JNPA_logo-removebg-preview.png") center center/cover;
+    top:0;
+    left: 0;
+    z-index: -1  ;
+}
+.section1 .banner{
+    height: 170px;
+    width: 600px;
+    background:rgba(255,255,255,0.7);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    font-family: sans-serif;
+    z-index: 8;
+}
+.banner h1{
+    font-size: 2em;
+}
+.banner a{
+    display: flex;
+    justify-content: center;
+    padding: 1em 2.5em;
+    font-size: 0.8em;
+    color: white;
+    background: #f09d51;
+    transition: all 0.3s;
+} */
+/* .main{
+    width: 100%; 
+    height: 100vh; 
+    position: relative; 
+    overflow: hidden; 
+    background: linear-gradient(to right, #ffff, #91c8f5); 
+}
+nav{
+    width: 80%;
+    position: sticky;
+    margin: 20px auto; 
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    height: 10vh; 
+}
+.logo{
+    flex-basis: 20%;
+} 
+.logo img {
+    width: 150px;
+} 
+.nav-links{
+    flex: 1;
+    text-align: center;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+}
+.nav-links ul li a{
+    color: #2a2727;
+    text-decoration: none;
+}
+.nav-links ul a:hover{
+    color:rgb(250, 247, 247);
+}
+.cart{
+    padding-right: 3em;
+    padding-top: 0em;
+    position: relative;
+}
+.cart .number-of-nominees{
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: absolute;
+    right: 20px;
+    top: -7px;
+    background: #f09d51;
+    height: 20px;
+    width: 20px;
+    border-radius: 7px;
+}
+.number-of-nominees .noi{
+    font-size: 0.7em;
+}
+.fa-light fa-user{
+    font-size: 1.5em;
+    cursor: pointer;
+}
+.section{
+    height: calc(100vh - 10vh);
+    width: 100%;
+    background: url("images/jnpaicon.png") center center/cover;
+    top:0;
+    left: 0;
+    z-index: -1  ;
+}
+.section1 .banner{
+    height: 170px;
+    width: 600px;
+    background:rgba(255,255,255,0.7);
+    position: relative;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content:
+    space-around;
+    flex-direction:
+    column;
+    text-align: center;
+    align-items: center;
+    font-family: sans-serif;
+    z-index: 8;
+}
+.banner h1{
+    font-size: 2em;
+}
+.banner a{
+    display: flex;
+    justify-content: center;
+    padding: 1em 2.5em;
+    font-size: 0.8em;
+    color: white;
+    background: #f09d51;
+    transition: all 0.3s;
+} */
